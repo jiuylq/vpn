@@ -1,10 +1,12 @@
-# Title: 自定义规则
-# 规则数量:
-# a.tiktokmod.pro，update.9mod.com 移除安卓版tiktok更新
+# Title: yiRule 自定义规则
+# 规则数量: 3
+# classical
 
 #-----------------规则-----------------#
 
 payload:
+
+  # 移除安卓版破解版tiktok更新
   - DOMAIN-SUFFIX,update.9mod.com
   - DOMAIN-SUFFIX,a.tiktokmod.pro
   - DOMAIN-SUFFIX,rezvorck.github.io
