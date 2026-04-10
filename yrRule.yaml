@@ -1,0 +1,9 @@
+# Title: 自定义规则
+# 规则数量:
+# a.tiktokmod.pro，update.9mod.com 移除安卓版tiktok更新
+
+#-----------------规则-----------------#
+
+payload:
+  - DOMAIN-SUFFIX,update.9mod.com
+  - DOMAIN-SUFFIX,a.tiktokmod.pro
