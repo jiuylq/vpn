@@ -52,25 +52,29 @@ Cron-bilibili = input, "0 6 9 * * *", tag = [哔哩哔哩]定时参数Cron, desc
 Task-iios = switch, true, false, tag = [iios]每日签到Task, desc = 定时运行[iios]每日签到Task
 Cron-iios = input, "0 8 9 * * *", tag = [iios]定时参数Cron, desc = 输入Cron表达式来定时运行[iios]每日签到Task
 
+# 雨晨ios yuchenios
+Task-yuchenios = switch, true, false, tag = [yuchenios]每日签到Task, desc = 定时运行[yuchenios]每日签到Task
+Cron-yuchenios = input, "0 10 9 * * *", tag = [yuchenios]定时参数Cron, desc = 输入Cron表达式来定时运行[yuchenios]每日签到Task
+
 # PingMe
 Cookie-pingme = switch, true, false, tag = [pingme]每日签到Token, desc = 获取[pingme]每日签到Token
 Task-pingme = switch, true, false, tag = [pingme]每日签到Task, desc = 定时运行[pingme]每日签到Task
-Cron-pingme = input, "0 10 9 * * *", tag = [pingme]定时参数Cron, desc = 输入Cron表达式来定时运行[pingme]每日签到Task
+Cron-pingme = input, "0 12 9 * * *", tag = [pingme]定时参数Cron, desc = 输入Cron表达式来定时运行[pingme]每日签到Task
 
 # WeTalk
 Cookie-WeTalk = switch, true, false, tag = [WeTalk]每日签到Token, desc = 获取[WeTalk]每日签到Token
 Task-WeTalk = switch, true, false, tag = [WeTalk]每日签到Task, desc = 定时运行[WeTalk]每日签到Task
-Cron-WeTalk = input, "0 12 9 * * *", tag = [WeTalk]定时参数Cron, desc = 输入Cron表达式来定时运行[WeTalk]每日签到Task
+Cron-WeTalk = input, "0 14 9 * * *", tag = [WeTalk]定时参数Cron, desc = 输入Cron表达式来定时运行[WeTalk]每日签到Task
 
 # 阿里云aliyun
 Cookie-aliyun = switch, true, false, tag = [aliyun]每日签到Token, desc = 获取[aliyun]每日签到Token
 Task-aliyun = switch, true, false, tag = [aliyun]每日签到Task, desc = 定时运行[aliyun]每日签到Task
-Cron-aliyun = input, "0 14 9 * * *", tag = [aliyun]定时参数Cron, desc = 输入Cron表达式来定时运行[aliyun]每日签到Task
+Cron-aliyun = input, "0 16 9 * * *", tag = [aliyun]定时参数Cron, desc = 输入Cron表达式来定时运行[aliyun]每日签到Task
 
 # 夸克网盘签到
 Cookie-quarkcloud = switch, true, false, tag = [quarkcloud]每日签到Token, desc = 获取[quarkcloud]每日签到Token
 Task-quarkcloud = switch, true, false, tag = [quarkcloud]每日签到Task, desc = 定时运行[quarkcloud]每日签到Task
-Cron-quarkcloud = input, "0 16 9 * * *", tag = [quarkcloud]定时参数Cron, desc = 输入Cron表达式来定时运行[quarkcloud]每日签到Task
+Cron-quarkcloud = input, "0 18 9 * * *", tag = [quarkcloud]定时参数Cron, desc = 输入Cron表达式来定时运行[quarkcloud]每日签到Task
 
 
 
@@ -101,6 +105,10 @@ cron {Cron-bilibili} script-path = https://raw.githubusercontent.com/ClydeTime/B
 cron {Cron-iios} script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/iios_checkin.js, tag=[iios]每日签到Task, enable={Task-iios}
 # box 中添加订阅：https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/Qx.boxjs.conf
 
+# 雨晨ios
+cron {Cron-yuchenios} script-path=https://gist.githubusercontent.com/Sliverkiss/9aab5b214f3145e39639a2581e83bb27/raw/yuchenios.js, tag=[yuchenios]每日签到Task, enable={Task-yuchenios}
+# box 中添加订阅：https://gist.githubusercontent.com/Sliverkiss/18bd01be356360a8065a21ea71685ad3/raw/sliverkiss.boxjs.json
+
 # PingMe
 http-request ^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js, timeout=60, tag=[pingme]每日签到Token, enable={Cookie-pingme}
 cron {Cron-pingme} script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PingMe/PingMeSignin.js, tag = [pingme]每日签到Task, timeout = 300, enable = {Task-pingme}
@@ -119,4 +127,4 @@ cron {Cron-quarkcloud} script-path=https://gist.githubusercontent.com/Sliverkiss
 
 
 [MitM]
-hostname = payapp.weixin.qq.com, api.weibo.cn, cm.bilibili.com, m.bilibili.com, www.iios.fun, api.pingmeapp.net, auth.alipan.com, auth.aliyundrive.com, drive-m.quark.cn, coral2.quark.cn, drive-pc.quark.cn, api.wetalkapp.com
+hostname = payapp.weixin.qq.com, api.weibo.cn, cm.bilibili.com, m.bilibili.com, www.iios.fun, api.pingmeapp.net, auth.alipan.com, auth.aliyundrive.com, drive-m.quark.cn, coral2.quark.cn, drive-pc.quark.cn, api.wetalkapp.com, iosyc.com
