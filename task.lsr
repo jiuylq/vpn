@@ -57,15 +57,20 @@ Cookie-pingme = switch, true, false, tag = [pingme]每日签到Token, desc = 获
 Task-pingme = switch, true, false, tag = [pingme]每日签到Task, desc = 定时运行[pingme]每日签到Task
 Cron-pingme = input, "0 10 9 * * *", tag = [pingme]定时参数Cron, desc = 输入Cron表达式来定时运行[pingme]每日签到Task
 
+# WeTalk
+Cookie-WeTalk = switch, true, false, tag = [WeTalk]每日签到Token, desc = 获取[WeTalk]每日签到Token
+Task-WeTalk = switch, true, false, tag = [WeTalk]每日签到Task, desc = 定时运行[WeTalk]每日签到Task
+Cron-WeTalk = input, "0 12 9 * * *", tag = [WeTalk]定时参数Cron, desc = 输入Cron表达式来定时运行[WeTalk]每日签到Task
+
 # 阿里云aliyun
 Cookie-aliyun = switch, true, false, tag = [aliyun]每日签到Token, desc = 获取[aliyun]每日签到Token
 Task-aliyun = switch, true, false, tag = [aliyun]每日签到Task, desc = 定时运行[aliyun]每日签到Task
-Cron-aliyun = input, "0 12 9 * * *", tag = [aliyun]定时参数Cron, desc = 输入Cron表达式来定时运行[aliyun]每日签到Task
+Cron-aliyun = input, "0 14 9 * * *", tag = [aliyun]定时参数Cron, desc = 输入Cron表达式来定时运行[aliyun]每日签到Task
 
 # 夸克网盘签到
 Cookie-quarkcloud = switch, true, false, tag = [quarkcloud]每日签到Token, desc = 获取[quarkcloud]每日签到Token
 Task-quarkcloud = switch, true, false, tag = [quarkcloud]每日签到Task, desc = 定时运行[quarkcloud]每日签到Task
-Cron-quarkcloud = input, "0 14 9 * * *", tag = [quarkcloud]定时参数Cron, desc = 输入Cron表达式来定时运行[quarkcloud]每日签到Task
+Cron-quarkcloud = input, "0 16 9 * * *", tag = [quarkcloud]定时参数Cron, desc = 输入Cron表达式来定时运行[quarkcloud]每日签到Task
 
 
 
@@ -99,6 +104,10 @@ cron {Cron-iios} script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/re
 # PingMe
 http-request ^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js, timeout=60, tag=[pingme]每日签到Token, enable={Cookie-pingme}
 cron {Cron-pingme} script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PingMe/PingMeSignin.js, tag = [pingme]每日签到Task, timeout = 300, enable = {Task-pingme}
+
+# WeTalk
+http-request ^https:\/\/api\.wetalkapp\.com\/app\/queryBalanceAndBonus script-path=https://raw.githubusercontent.com/jiuylq/vpn/refs/heads/main/WeTalk.js, timeout=60, tag=[WeTalk]每日签到Token, enable={Cookie-WeTalk}
+cron {Cron-WeTalk} script-path = https://raw.githubusercontent.com/jiuylq/vpn/refs/heads/main/WeTalk.js, tag = [WeTalk]每日签到Task, timeout = 300, enable = {Task-WeTalk}
 
 # 阿里云盘签到
 http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token url script-path==https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, requires-body=true, timeout=60, tag=[pingme]每日签到Token, enable={Cookie-aliyun}
