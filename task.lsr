@@ -79,8 +79,9 @@ http-response https:\/\/payapp\.weixin\.qq\.com\/(coupon-center-user\/home\/logi
 cron {Cron-wechatpay} script-path = https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/wechat_pay_coupon.js, tag = [微信支付有优惠]领金币Task, enable={Task-wechatpay}
 
 # 微博 - api.weibo.cn
-http-request ^https?:\/\/api\.weibo\.cn\/\d\/users\/show script-path = https://loon.103516.xyz/Script/CookieTask/WeiboCookieTask.js, tag = [微博]每日签到Token, enable={Cookie-weibo}
-cron {Cron-weibo} script-path = https://loon.103516.xyz/Script/CookieTask/WeiboCookieTask.js, tag = [微博]每日签到Task, enable={Task-weibo}
+http-request ^https:\/\/m?api\.weibo\.c(n|om)\/\d\/users\/show script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js, tag = [微博]每日签到Token, enable={Cookie-weibo}
+cron {Cron-weibo} script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_signin.js, tag = [微博]每日签到Task, enable={Task-weibo}
+
 
 # Soul - increase-openapi.soulapp.cn
 # http-request ^https:\/\/increase-openapi\.soulapp\.cn\/increase\/sign\/userSign script-path = https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/SoulSing.js, tag = [Soul]每日金币签到Token, enable={Cookie-soul}
@@ -100,7 +101,7 @@ http-request ^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus script-pa
 cron {Cron-pingme} script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PingMe/PingMeSignin.js, tag = [pingme]每日签到Task, timeout = 300, enable = {Task-pingme}
 
 # 阿里云盘签到
-http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token url script-path==https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, timeout=60, tag=[pingme]每日签到Token, enable={Cookie-aliyun}
+http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token url script-path==https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, requires-body=true, timeout=60, tag=[pingme]每日签到Token, enable={Cookie-aliyun}
 cron {Cron-aliyun} script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png, timeout=300, tag=[aliyun]每日签到Task, enable={Task-aliyun}
 
 # 夸克网盘
