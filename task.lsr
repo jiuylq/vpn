@@ -119,4 +119,4 @@ cron {Cron-quarkcloud} script-path=https://gist.githubusercontent.com/Sliverkiss
 
 
 [MitM]
-hostname = payapp.weixin.qq.com, api.weibo.cn, cm.bilibili.com, m.bilibili.com, www.iios.fun, api.pingmeapp.net, auth.alipan.com, auth.aliyundrive.com, drive-m.quark.cn, coral2.quark.cn, drive-pc.quark.cn
+hostname = payapp.weixin.qq.com, api.weibo.cn, cm.bilibili.com, m.bilibili.com, www.iios.fun, api.pingmeapp.net, auth.alipan.com, auth.aliyundrive.com, drive-m.quark.cn, coral2.quark.cn, drive-pc.quark.cn, api.wetalkapp.com
