@@ -105,9 +105,13 @@ http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token url 
 cron {Cron-aliyun} script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png, timeout=300, tag=[aliyun]每日签到Task, enable={Task-aliyun}
 
 # 夸克网盘
-http-request ^https:\/\/drive-m.quark.cn\/1\/clouddrive\/capacity\/growth\/sign.+ url script-path==https://gist.githubusercontent.com/Sliverkiss/2694a665b4e52d8788c18394201ff3eb/raw/quarkcloud.js, timeout=60, tag=[quarkcloud]每日签到Token, enable={Cookie-quarkcloud}
-cron {Cron-quarkcloud} script-path=https://gist.githubusercontent.com/Sliverkiss/2694a665b4e52d8788c18394201ff3eb/raw/quarkcloud.js, timeout=300, tag=[quarkcloud]每日签到Task, enable={Task-quarkcloud}
+http-response ^https:\/\/drive-pc\.quark\.cn\/1\/clouddrive\/file\/sort script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=[quarkcloud]每日签到Token, enable={Cookie-quarkcloud}
+# http-response ^https:\/\/coral2\.quark\.cn\/task\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=[quarkcloud]每日签到Token, enable={Cookie-quarkcloud}
+http-request ^https:\/\/coral2\.quark\.cn\/quark\/(carbon|welfare)\/(v1|v2)\/signIn script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=[quarkcloud]每日签到Task, enable={Task-quarkcloud}
+# http-request ^https:\/\/coral2\.quark\.cn\/quark\/welfare\/v2\/sleep\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘睡眠打卡收录任务
+# http-request ^https:\/\/drive-m.quark.cn\/1\/clouddrive\/capacity\/growth\/sign.+ url script-path==https://gist.githubusercontent.com/Sliverkiss/2694a665b4e52d8788c18394201ff3eb/raw/quarkcloud.js, timeout=60, tag=[quarkcloud]每日签到Token, enable={Cookie-quarkcloud}
+cron {Cron-quarkcloud} script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, timeout=300, tag=[quarkcloud]每日签到Task, enable={Task-quarkcloud}
 
 
 [MitM]
-hostname = payapp.weixin.qq.com, api.weibo.cn, cm.bilibili.com, m.bilibili.com, www.iios.fun, api.pingmeapp.net, auth.alipan.com, auth.aliyundrive.com, drive-m.quark.cn
+hostname = payapp.weixin.qq.com, api.weibo.cn, cm.bilibili.com, m.bilibili.com, www.iios.fun, api.pingmeapp.net, auth.alipan.com, auth.aliyundrive.com, drive-m.quark.cn, coral2.quark.cn, drive-pc.quark.cn
