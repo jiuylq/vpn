@@ -2,10 +2,10 @@
 /*
 [Script]
 # WeTalk 抓包获取 Cookie
-http-request ^https:\/\/api\.wetalkapp\.com\/app\/queryBalanceAndBonus script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/WeTalk.js, tag=WeTalk获取Cookie
+http-request ^https:\/\/api\.wetalkapp\.com\/app\/queryBalanceAndBonus script-path=https://raw.githubusercontent.com/jiuylq/vpn/refs/heads/main/WeTalk.js, tag=WeTalk获取Cookie
 
 # WeTalk 自动签到任务
-cron "20 8,20 * * *" script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/WeTalk.js, tag=WeTalk签到, enabled=true
+cron "20 8,20 * * *" script-path=https://raw.githubusercontent.com/jiuylq/vpn/refs/heads/main/WeTalk.js, tag=WeTalk签到, enabled=true
 
 [MITM]
 hostname = api.wetalkapp.com
